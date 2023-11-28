@@ -26,5 +26,13 @@
     "name": "Mario Nuss",
     "email": "marionuss@ent.org",
     "body": "Thou shall not and not thou"
-  }
+  },
+  {
+    "postId": 1,
+    "id": 5,
+    "name": "SEX",
+    "email": "ASDSA",
+    "body": "bhello wrold!"
+  },
+  { "postId": 5, "id": 6, "name": "SEX", "email": "ASDSA", "body": "HAHHAAHA!" }
 ]

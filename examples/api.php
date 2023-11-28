@@ -10,7 +10,7 @@ $postsJSON = '../data/posts.json';
 // comments JSON
 $commentsJSON = '../data/comments.json';
 
-$loggedin = $_GET["username"];
+
 
 // function get users from json
 function registerUser() {
@@ -36,7 +36,7 @@ function registerUser() {
 }
 
 function getLoginData(){
-    global $loggedin;
+    $loggedin = $_GET["username"];
     $data = file_get_contents('../data/users.json');
     $decode = json_decode($data, true);
 
@@ -146,6 +146,28 @@ function getCommentsData() {
     return json_decode($data, true);
 }
 
+function postComments() {
+    global $commentsJSON;
+    $loginData = getLoginData();
+    $data = file_get_contents($commentsJSON);
+    $id = json_decode($data, true);
+    $end = end($id);
+    $new_Id = (int)$end["id"] + 1;
+    $extra = array(
+        "postId" => (int)$_POST['post_id'],
+        "id" => $new_Id,
+        "name" => $loginData['name'],
+        "email" => $loginData['email'],
+        "body" => $_POST['body']
+    );                 
+
+    $tempArray = json_decode($data);
+    array_push($tempArray, $extra);
+    $jsonData = json_encode($tempArray);
+    
+    file_put_contents($commentsJSON, $jsonData);
+}
+
 
 function getPosts(){
 
@@ -200,6 +222,7 @@ function getPosts(){
                             <h5><a href="timeline.html" class="profile-link">'. $parr['uid']['name'] .'</a></h5>
                           </div>
                           <form method ="post">
+                            <input type="hidden" name="post_id" value='.$postctr.'>
                             <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
                           </form>
                           <div class="reaction">
@@ -215,6 +238,8 @@ function getPosts(){
                 foreach($parr['comments'] as $comm){
                     $commentctr++;
 
+                    print_r($comm);
+
                     $str .=  '<div class="post-comment"  id = '.$commentctr.'>
                             <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
                             <p>'.$comm['body'].'</p>
@@ -227,9 +252,12 @@ function getPosts(){
                          
                           
             $str.='</div>
+            <form method = "post">
             <div class="bg-light p-2">
-            <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-            <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button><button class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+            <input type = "hidden" name="post_id" value='.$postctr.'>
+            <textarea class="form-control ml-1 shadow-none textarea" name="body"></textarea></div>
+            <div class="mt-2 text-right"><input class="btn btn-primary btn-sm shadow-none" name = "comment" type="submit" value="Post Comment"></div>
+        </form>
                       </div>
                     </div>
                 </div>
@@ -257,13 +285,11 @@ function getPosts(){
                   </div>
                   <div class="line-divider"></div>';
         foreach($parr['comments'] as $comm){
+
             $commentctr++;
             $str .=  '<div class="post-comment" id = '.$commentctr.'>
             <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
             <p>'.$comm['body'].'</p>
-            <form method ="post">
-            <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
-            </form>
             </div>';
         }
         
@@ -274,11 +300,12 @@ function getPosts(){
                  
                   
     $str.='</div>
-    <form method ="post">
-        <div class="bg-light p-2">
-        <textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
-        <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button">Post comment</button></div>
-    </form>
+    <form method = "post">
+    <div class="bg-light p-2">
+    <input type = "hidden" name="post_id" value='.$postctr.'>
+    <textarea class="form-control ml-1 shadow-none textarea" name="body"></textarea></div>
+    <div class="mt-2 text-right"><input class="btn btn-primary btn-sm shadow-none" name = "comment" type="submit" value="Post Comment"></div>
+</form>
               </div>
             </div>
 

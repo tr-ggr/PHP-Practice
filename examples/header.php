@@ -30,10 +30,8 @@
                     <form method = "get">
                         <label for="username">Username:</label>
                         <input type="text" id="username" name="username"><br><br>
-                        <form method = "post">
                             <input type="submit" class="register btn btn-primary" id="login" value="login" name="login">
 </form>
-                    </form>
                     </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ include("api.php");
 ?>
 <div class="container">
 <?php 
-    if(isset($_POST["login"])){
+    if(isset($_GET["username"])){
         echo loginUser();
     }
 ?>
@@ -35,6 +35,10 @@ echo getPosts();
 
     if(isset($_POST["post"])){
         echo addPosts();
+    }
+
+    if(isset($_POST["comment"])){
+        echo postComments();
     }
 ?>
 
