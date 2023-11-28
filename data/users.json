@@ -1,0 +1,219 @@
+[
+  {
+    "id": 1,
+    "name": "Mario Summ",
+    "username": "mariosumm",
+    "email": "mariosumm@gmail.com",
+    "address": {
+      "street": "Kahilakon",
+      "barangay": "Himi",
+      "city": "Crying Buds"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Emily Laff",
+    "username": "emilylaff",
+    "email": "emilylaff@gmail.com",
+    "address": { "street": "Muboon", "barangay": "Putot", "city": "Giants" }
+  },
+  {
+    "id": 3,
+    "name": "James Acabal",
+    "username": "Game Mode",
+    "email": "sex@yahoo.com",
+    "address": { "street": "Sex", "barangay": "AStrewet", "city": "Repo" }
+  },
+  {
+    "id": 4,
+    "name": "James Acabal",
+    "username": "Game Mode",
+    "email": "sex@yahoo.com",
+    "address": { "street": "Sex", "barangay": "AStrewet", "city": "Repo" }
+  },
+  {
+    "id": 5,
+    "name": "Jame",
+    "username": "Game Mode",
+    "email": "sex@yahoo.com",
+    "address": { "street": "agwa", "barangay": "", "city": "" }
+  },
+  {
+    "id": 6,
+    "name": "Jame",
+    "username": "Game Mode",
+    "email": "sex@yahoo.com",
+    "address": { "street": "agwa", "barangay": "", "city": "" }
+  },
+  {
+    "id": 7,
+    "name": "Jeremy",
+    "username": "Gaming",
+    "email": "sexysex@yahoo.com",
+    "address": {
+      "street": "sex gods",
+      "barangay": "poblacion 1",
+      "city": "coc"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Jeremy",
+    "username": "Gaming",
+    "email": "sexysex@yahoo.com",
+    "address": {
+      "street": "sex gods",
+      "barangay": "poblacion 1",
+      "city": "coc"
+    }
+  },
+  {
+    "id": 9,
+    "name": "SEX",
+    "username": "GODS",
+    "email": "ASDSA",
+    "address": {
+      "street": "ASFDASFA",
+      "barangay": "`QASFASF",
+      "city": "ASFASF"
+    }
+  },
+  {
+    "id": 10,
+    "name": "SEX",
+    "username": "GODS",
+    "email": "ASDSA",
+    "address": {
+      "street": "ASFDASFA",
+      "barangay": "`QASFASF",
+      "city": "ASFASF"
+    }
+  },
+  {
+    "id": 11,
+    "name": "SEX",
+    "username": "GODS",
+    "email": "ASDSA",
+    "address": {
+      "street": "ASFDASFA",
+      "barangay": "`QASFASF",
+      "city": "ASFASF"
+    }
+  },
+  {
+    "id": 12,
+    "name": "yibhi",
+    "username": "biubibi",
+    "email": "bibihjbih",
+    "address": {
+      "street": "bihbhbih",
+      "barangay": "b ihbihb",
+      "city": "ihbihbhi"
+    }
+  },
+  {
+    "id": 13,
+    "name": "asf",
+    "username": "nbiiubibni",
+    "email": "ouniunj",
+    "address": { "street": "ouinono", "barangay": "nono", "city": "nounou" }
+  },
+  {
+    "id": 14,
+    "name": "James Acabal",
+    "username": "KABITGOD",
+    "email": "kabi.homo.com",
+    "address": { "street": "mingla", "barangay": "", "city": "" }
+  },
+  {
+    "id": 15,
+    "name": "Lord",
+    "username": "Patawad",
+    "email": "LOOORD",
+    "address": { "street": "patawad", "barangay": "patawad", "city": "pawtasd" }
+  },
+  {
+    "id": 16,
+    "name": "asdad",
+    "username": "asdasf",
+    "email": "asfasf",
+    "address": { "street": "asfasf", "barangay": "safasf", "city": "safasf" }
+  },
+  {
+    "id": 17,
+    "name": "asdad",
+    "username": "asdasf",
+    "email": "asfasf",
+    "address": { "street": "asfasf", "barangay": "safasf", "city": "safasf" }
+  },
+  {
+    "id": 18,
+    "name": "asdad",
+    "username": "asdasf",
+    "email": "asfasf",
+    "address": { "street": "asfasf", "barangay": "safasf", "city": "safasf" }
+  },
+  {
+    "id": 19,
+    "name": "lmao",
+    "username": "",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 20,
+    "name": "lmao",
+    "username": "",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 21,
+    "name": "lmao",
+    "username": "",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 22,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 23,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 24,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 25,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 26,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  },
+  {
+    "id": 27,
+    "name": "Laine",
+    "username": "Segundo",
+    "email": "",
+    "address": { "street": "", "barangay": "", "city": "" }
+  }
+]
