@@ -73,7 +73,7 @@ function loginUser(){
                 <textarea class="form-control" id="body" name="body" rows="3"></textarea>
             </div> <br>
 
-            <input type="submit" id="post" name="post" class="btn btn-primary btn-lg btn-block">
+            <input type="submit" id="post" name="post" class="btn btn-primary btn-lg btn-block" value="post">
 
         </form>
 
