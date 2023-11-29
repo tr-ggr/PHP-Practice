@@ -60,8 +60,7 @@ function loginUser(){
     }
 
     $str = '    
-    <div class = "forms" style="padding: 2rem;display: flex;flex-direction: column;gap: 1rem;"> Hello '.
-        $loginData["username"].'
+    <div class = "forms" style="padding: 2rem;display: flex;flex-direction: column;gap: 1rem;">
         <form method = "post">
 
             <div class="input-group input-group-lg">
@@ -109,6 +108,8 @@ function addPosts(){
         
     file_put_contents($postsJSON, $jsonData);
 
+    echo  '<script> location.replace("index.php?username='.$loginData['username'].'"); </script>';
+
 }
 
 function getUsersData() {
@@ -146,6 +147,39 @@ function getCommentsData() {
     return json_decode($data, true);
 }
 
+function userDeletes(){
+    global $postsJSON, $commentsJSON;
+    $posts = getPostsData();
+    $comments = getCommentsData();
+    $loginData = getLoginData();
+
+    if($_POST['info'] == "post"){
+        $index = (int)$_POST['post_id'] - 1;
+        array_splice($posts,$index,$index);
+
+        $jsonData = json_encode($posts);
+        file_put_contents($postsJSON, $jsonData);
+    } else if($_POST['info'] == "comment"){
+        $index = (int)$_POST['comment_id'] - 1;
+        array_splice($comments,$index,$index);
+
+        // echo '<script>alert("'.$comments.'")</script>';
+
+        // print_r($comments)
+
+        $jsonData = json_encode($comments);
+
+        // print_r($jsonData);
+        file_put_contents($commentsJSON, $jsonData);
+
+        echo '<script>alert("'.$jsonData.'")</script>';
+    } else {
+        echo '<script>alert("Didnt work!")</script>';
+    }
+
+    echo  '<script> location.replace("index.php?username='.$loginData['username'].'"); </script>';
+}
+
 function postComments() {
     global $commentsJSON;
     $loginData = getLoginData();
@@ -166,6 +200,8 @@ function postComments() {
     $jsonData = json_encode($tempArray);
     
     file_put_contents($commentsJSON, $jsonData);
+
+    echo  '<script> location.replace("index.php?username='.$loginData['username'].'"); </script>';
 }
 
 
@@ -222,7 +258,8 @@ function getPosts(){
                             <h5><a href="timeline.html" class="profile-link">'. $parr['uid']['name'] .'</a></h5>
                           </div>
                           <form method ="post">
-                            <input type="hidden" name="post_id" value='.$postctr.'>
+                            <input type="hidden" name="info" value="post">
+                            <input type="hidden" name="post_id" value='.$comm['id'].'>
                             <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
                           </form>
                           <div class="reaction">
@@ -238,15 +275,28 @@ function getPosts(){
                 foreach($parr['comments'] as $comm){
                     $commentctr++;
 
-                    print_r($comm);
+                    // print_r($comm['id']);
+                    
+                    echo '<script>console.log(1)</script>';
+                    
+                    if($comm['name'] == $loginData['name']){
+                        $str .=  '<div class="post-comment"  id = '.$commentctr.'>
+                        <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
+                        <p>'.$comm['body'].'</p>
+                        <form method ="post">
+                            <input type="hidden" name="info" value="comment">
+                            <input type="hidden" name="comment_id" value="'.$comm['id'].'">
+                            <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
+                        </form>
+                      </div>';
+                    } else {
+                        $str .=  '<div class="post-comment"  id = '.$commentctr.'>
+                        <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
+                        <p>'.$comm['body'].'</p>
+                      </div>';
+                    }
 
-                    $str .=  '<div class="post-comment"  id = '.$commentctr.'>
-                            <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
-                            <p>'.$comm['body'].'</p>
-                            <form method ="post">
-                                <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
-                            </form>
-                          </div>';
+
                 }
                         
                          
@@ -287,10 +337,25 @@ function getPosts(){
         foreach($parr['comments'] as $comm){
 
             $commentctr++;
-            $str .=  '<div class="post-comment" id = '.$commentctr.'>
-            <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
-            <p>'.$comm['body'].'</p>
-            </div>';
+
+            // print_r($comm['id']);
+
+            if($comm['name'] == $loginData['name']){
+                $str .=  '<div class="post-comment"  id = '.$commentctr.'>
+                <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
+                <p>'.$comm['body'].'</p>
+                <form method ="post">
+                    <input type="hidden" name="info" value="comment">
+                    <input type="hidden" name="comment_id" value="'.$comm['id'].'">
+                    <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
+                </form>
+              </div>';
+            } else {
+                $str .=  '<div class="post-comment"  id = '.$commentctr.'>
+                <img src="https://ui-avatars.com/api/?rounded=true&name='.$comm['name'].'" alt="" class="profile-photo-sm">
+                <p>'.$comm['body'].'</p>
+              </div>';
+            }
         }
         
                

@@ -12,12 +12,12 @@
 <body>
 
 <?php
-include("header.php");
-include("api.php");
+include("headerHOME.php");
+include("homeAPI.php");
 ?>
 <div class="container">
 <?php 
-    if(isset($_GET["username"])){
+    if(isset($_POST["login"])){
         echo loginUser();
     }
 ?>
@@ -39,14 +39,6 @@ echo getPosts();
 
     if(isset($_POST["comment"])){
         echo postComments();
-    }
-
-    if(isset($_POST["delete"])){
-        echo userDeletes();
-    }
-
-    if(isset($_POST["logout"])){
-        echo  '<script> location.replace("indexHome.php"); </script>';
     }
 ?>
 
