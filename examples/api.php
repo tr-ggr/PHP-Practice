@@ -259,7 +259,7 @@ function getPosts(){
                           </div>
                           <form method ="post">
                             <input type="hidden" name="info" value="post">
-                            <input type="hidden" name="post_id" value='.$comm['id'].'>
+                            <input type="hidden" name="post_id" value='.$postctr.'>
                             <input type="submit" id="delete" value="delete" name="delete" class="btn btn-danger btn-lg btn-block">
                           </form>
                           <div class="reaction">
